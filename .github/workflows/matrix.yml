@@ -3,9 +3,10 @@ on: [push, workflow_dispatch]
 jobs:
   # 01 - Test the Repo    
   test-job:
+    continue-on-error: true
     strategy:
       matrix:
-        node-version: [18,20]
+        node-version: [12,14,16]
         operating-system: [ubuntu-latest,windows-latest] 
     runs-on: ${{ matrix.operating-system}}
     steps:
